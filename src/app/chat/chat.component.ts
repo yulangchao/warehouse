@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import {Angular2AutoScroll} from "angular2-auto-scroll/lib/angular2-auto-scroll.directive";
 import {ChatService} from './chat.service';
 import {Router} from '@angular/router-deprecated';
 // We `import` `http` into our `ChatService` but we can only
@@ -16,7 +15,7 @@ import {NgFor} from '@angular/common';
     // Let Angular 2 know about `Http` and `ChatService`
     providers: [...HTTP_PROVIDERS, ChatService],
     template: require('./chat.html'),
-    directives: [Angular2AutoScroll]
+    directives: []
 })
 export class Chat {
 

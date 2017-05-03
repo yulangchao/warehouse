@@ -27,7 +27,8 @@ import {NgFor} from '@angular/common';
 
 // Import Todo component
 import {Todo} from './todo/todo.component';
-
+import {Item} from './items/item.component';
+import {Ruku} from './ruku/ruku.component';
 // Import Recipes component
 import {Chat} from './chat/chat.component';
 import {SignUpComponent} from './auth/signup/signup.component';
@@ -55,6 +56,8 @@ import {Profile} from './profile/profile.component';
   { path: '/', name: 'Index', component: Home, useAsDefault: true },
   { path: '/home',  name: 'Home',  component: Home },
   { path: '/todo', component: Todo, name: 'Todo' },
+  { path: '/item', component: Item, name: 'Item' },
+  { path: '/ruku', component: Ruku, name: 'Ruku' },
   { path: '/chat', component: Chat, name: 'Chat' },
   { path: '/signup', component: SignUpComponent, name: 'Signup' },
   { path: '/signin', component: SignInComponent, name: 'Signin' },
@@ -67,7 +70,7 @@ import {Profile} from './profile/profile.component';
 
 export class App {
   angularLogo = 'assets/img/angular-logo.png';
-  name = 'LoLer';
+  name = 'Ng-2';
   url = 'https://twitter.com/datatype_void';
   public check_button: any = false;
   public isAuthenticate: any;
