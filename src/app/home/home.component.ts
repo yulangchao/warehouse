@@ -72,7 +72,12 @@ export class Home {
     this.appState.set('value', value);
     this.localState.value = '';
   }
-  isadmin(){
-    return (JSON.parse(localStorage.getItem('token')).role === "admin");
+  islog(){
+    if (localStorage.getItem('token')){
+      return true;
+    }else{
+      return false;
+    }
+
   }
 }
