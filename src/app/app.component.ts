@@ -29,6 +29,8 @@ import {NgFor} from '@angular/common';
 import {Todo} from './todo/todo.component';
 import {Item} from './items/item.component';
 import {Ruku} from './ruku/ruku.component';
+import {Chuku} from './chuku/chuku.component';
+import {Summary} from './summary/summary.component';
 // Import Recipes component
 import {Chat} from './chat/chat.component';
 import {SignUpComponent} from './auth/signup/signup.component';
@@ -43,7 +45,6 @@ import {Profile} from './profile/profile.component';
   selector: 'app',
   providers: [ AuthService  ],
   directives: [ Todo,
-
                 NgFor,
                 RouterActive],
   encapsulation: ViewEncapsulation.None,
@@ -58,6 +59,8 @@ import {Profile} from './profile/profile.component';
   { path: '/todo', component: Todo, name: 'Todo' },
   { path: '/item', component: Item, name: 'Item' },
   { path: '/ruku', component: Ruku, name: 'Ruku' },
+  { path: '/chuku', component: Chuku, name: 'Chuku' },
+  { path: '/summary', component: Summary, name: 'Summary' },
   { path: '/chat', component: Chat, name: 'Chat' },
   { path: '/signup', component: SignUpComponent, name: 'Signup' },
   { path: '/signin', component: SignInComponent, name: 'Signin' },

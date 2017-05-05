@@ -6,16 +6,20 @@ import {RukuService} from './ruku.service';
 // specify providers within our component
 import {HTTP_PROVIDERS} from '@angular/http';
 import {Item} from '../items/item.component';
+import {Myruku} from './ruku.directive';
 // Import NgFor directive
 import {NgFor} from '@angular/common';
-
+import {Router} from '@angular/router-deprecated';
 // Create metadata with the `@Component` decorator
 @Component({
     // HTML tag for specifying this component
     selector: 'ruku',
     // Let Angular 2 know about `Http` and `RukuService`
     providers: [...HTTP_PROVIDERS, RukuService],
-    template: require('./ruku.html')
+    template: require('./ruku.html'),
+    directives: [
+      Myruku
+    ]
 })
 export class Ruku {
 
@@ -34,9 +38,15 @@ export class Ruku {
   private items: Array<Item> = [];
   private array: Array<any> = [];
   private count: number = 0;
-  constructor(public rukuService: RukuService) {
+  private a = 0;
+  constructor(private router: Router, public rukuService: RukuService) {
     console.log('Ruku constructor go!');
+      if (localStorage.getItem('token')) {
+          console.log(JSON.parse(localStorage.getItem('token')));
+      } else {
 
+        router.navigate(['Index']);
+      }
       //this.rukus = [];
       rukuService.getAll()
         // `Rxjs`; we subscribe to the response
@@ -44,6 +54,9 @@ export class Ruku {
 
             // Populate our `ruku` array with the `response` data
             this.rukus = res;
+            for (let ruku of res){
+            this.a += ruku.price * ruku.number;
+            }
             // Reset `ruku` input
             this.rukuData.text = '';
             this.rukuData.name = '';

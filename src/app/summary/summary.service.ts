@@ -6,7 +6,7 @@ import {Http, Headers} from '@angular/http';
 // This makes sure `TypeScript` emits the needed metadata
 // Reference : http://blog.thoughtram.io/angular/2015/09/17/resolve-service-dependencies-in-angular-2.html
 @Injectable()
-export class ItemService {
+export class SummaryService {
   // The `public` keyword denotes that the constructor parameter will
   // be retained as a field.
   // Reference: https://github.com/Microsoft/TypeScript/blob/master/doc/spec.md#336-members
@@ -18,31 +18,6 @@ export class ItemService {
   // `Http` parameter
   constructor(public http:Http) {
 
-  }
-
-  getAll() {
-      return this.http.get('/api/item')
-          // map the `HTTP` response from `raw` to `JSON` format
-          // using `RxJs`
-          // Reference: https://github.com/Reactive-Extensions/RxJS
-          .map(res => res.json());
-  }
-
-  createItem(data) {
-
-    let headers = new Headers();
-
-    headers.append('Content-Type', 'application/json');
-
-    return this.http.post('/api/item', JSON.stringify(data),
-          {headers: headers})
-        .map(res => res.json());
-  }
-
-  deleteItem(id) {
-
-      return this.http.delete(`/api/item/${id}`)
-          .map(res => res.json());
   }
 
   getAllruku(){
@@ -61,12 +36,4 @@ export class ItemService {
       .map(res => res.json());
   }
 
-  updateItem(name,number) {
-      let headers = new Headers();
-
-      headers.append('Content-Type', 'application/json');
-      return this.http.put(`/api/item/${name}`,JSON.stringify(number),
-          {headers: headers})
-          .map(res => res.json());
-  }
 }

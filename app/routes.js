@@ -18,6 +18,7 @@ import authRoutes from './routes/_authentication.router.js';
 import todoRoutes from './routes/_todo.router.js';
 import itemRoutes from './routes/_item.router.js';
 import rukuRoutes from './routes/_ruku.router.js';
+import chukuRoutes from './routes/_chuku.router.js';
 import chatRoutes from './routes/_chat.router.js';
 // Load our API routes for the `recipe` component
 import recipeRoutes from './routes/_recipe.router.js';
@@ -70,6 +71,7 @@ export default (app, router, passport) => {
   todoRoutes(app, router);
     itemRoutes(app, router);
     rukuRoutes(app, router);
+    chukuRoutes(app, router);
     chatRoutes(app, router);
 	recipeRoutes(app, router);
 

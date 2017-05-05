@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+
+
+    <div class="col-md-12">
+
+      <h4>Datatable</h4>
+
+
+
+      <div class="table table-responsive">
+
+        <table id="mytable" class="table table-bordered table-hover table-striped">
+
+          <thead>
+            <th>Name</th>
+            <th>Number</th>
+          </thead>
+          <tbody *ngFor="let item of summarys">
+            <tr>
+              <td>{{item.name}}</td>
+              <td>{{item.number}}</td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr>
+              <td>Income</td>
+              <td>{{income}}</td>
+            </tr>
+            <tr>
+              <td>Outcome</td>
+              <td>{{outcome}}</td>
+            </tr>
+             <tr>
+              <td>Net Income</td>
+              <td>{{income-outcome}}</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="clearfix"></div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
