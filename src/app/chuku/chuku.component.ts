@@ -79,13 +79,14 @@ export class Chuku {
   }
 
   createChuku() {
+    if (JSON.parse(localStorage.getItem('token')).role === "admin") {
       this.chukuData.name = this.chukuData.name.split('+')[1];
       this.chukuService.createChuku(this.chukuData)
         .subscribe((res) => {
 
-            // Populate our `chuku` array with the `response` data
-            this.chukus = res;
-            // Reset `chuku` input
+          // Populate our `chuku` array with the `response` data
+          this.chukus = res;
+          // Reset `chuku` input
           this.chukuData.text = '';
           this.chukuData.name = '';
           this.chukuData.price = null;
@@ -102,37 +103,42 @@ export class Chuku {
       //       this.chukus = res;
       //       // Reset `chuku` input
       //  });
-
+    }
 
   }
 
   deleteChuku(id) {
-
-    this.chukuService.deleteChuku(id)
-      .subscribe((res) => {
+    if (JSON.parse(localStorage.getItem('token')).role === "admin") {
+      this.chukuService.deleteChuku(id)
+        .subscribe((res) => {
 
           // Populate our `chuku` array with the `response` data
           this.chukus = res;
-      });
+        });
+    }
   }
 
   updateItem(){
-    this.chukuService.getItem(this.chukuData.name)
-      .subscribe((res) => {
+    if (JSON.parse(localStorage.getItem('token')).role === "admin") {
+      this.chukuService.getItem(this.chukuData.name)
+        .subscribe((res) => {
 
-        // Populate our `chuku` array with the `response` data;
-        console.log(parseInt("" + this.chukuData.number));
-        this.count = res.number + parseInt("" + this.chukuData.number);
-        console.log(this.count);
-        this.chukuService.updateItem(this.chukuData.name,this.count)
-          .subscribe((res) => {
+          // Populate our `chuku` array with the `response` data;
+          console.log(parseInt("" + this.chukuData.number));
+          this.count = res.number + parseInt("" + this.chukuData.number);
+          console.log(this.count);
+          this.chukuService.updateItem(this.chukuData.name, this.count)
+            .subscribe((res) => {
 
-          });
+            });
 
-      });
+        });
 
+    }
 
-
+  }
+  isadmin(){
+    return (JSON.parse(localStorage.getItem('token')).role === "admin");
   }
 
 }

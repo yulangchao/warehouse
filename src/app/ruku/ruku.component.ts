@@ -80,13 +80,14 @@ export class Ruku {
   }
 
   createRuku() {
+    if (JSON.parse(localStorage.getItem('token')).role === "admin") {
       this.rukuData.name = this.rukuData.name.split('+')[1];
       this.rukuService.createRuku(this.rukuData)
         .subscribe((res) => {
 
-            // Populate our `ruku` array with the `response` data
-            this.rukus = res;
-            // Reset `ruku` input
+          // Populate our `ruku` array with the `response` data
+          this.rukus = res;
+          // Reset `ruku` input
           this.rukuData.text = '';
           this.rukuData.name = '';
           this.rukuData.price = null;
@@ -103,37 +104,41 @@ export class Ruku {
       //       this.rukus = res;
       //       // Reset `ruku` input
       //  });
-
+    }
 
   }
 
   deleteRuku(id) {
-
-    this.rukuService.deleteRuku(id)
-      .subscribe((res) => {
+    if (JSON.parse(localStorage.getItem('token')).role === "admin") {
+      this.rukuService.deleteRuku(id)
+        .subscribe((res) => {
 
           // Populate our `ruku` array with the `response` data
           this.rukus = res;
-      });
+        });
+    }
   }
 
   updateItem(){
-    this.rukuService.getItem(this.rukuData.name)
-      .subscribe((res) => {
+    if (JSON.parse(localStorage.getItem('token')).role === "admin") {
+      this.rukuService.getItem(this.rukuData.name)
+        .subscribe((res) => {
 
-        // Populate our `ruku` array with the `response` data;
-        console.log(parseInt("" + this.rukuData.number));
-        this.count = res.number + parseInt("" + this.rukuData.number);
-        console.log(this.count);
-        this.rukuService.updateItem(this.rukuData.name,this.count)
-          .subscribe((res) => {
+          // Populate our `ruku` array with the `response` data;
+          console.log(parseInt("" + this.rukuData.number));
+          this.count = res.number + parseInt("" + this.rukuData.number);
+          console.log(this.count);
+          this.rukuService.updateItem(this.rukuData.name, this.count)
+            .subscribe((res) => {
 
-          });
+            });
 
-      });
+        });
 
 
-
+    }
   }
-
+  isadmin(){
+    return (JSON.parse(localStorage.getItem('token')).role === "admin");
+  }
 }

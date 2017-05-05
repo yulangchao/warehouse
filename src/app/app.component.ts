@@ -73,7 +73,7 @@ import {Profile} from './profile/profile.component';
 
 export class App {
   angularLogo = 'assets/img/angular-logo.png';
-  name = 'Ng-2';
+  name = 'Product Managers';
   url = 'https://twitter.com/datatype_void';
   public check_button: any = false;
   public isAuthenticate: any;

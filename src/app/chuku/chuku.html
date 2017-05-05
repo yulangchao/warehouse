@@ -10,7 +10,7 @@
 
       <div class="table table-responsive" mychuku>
                 <p data-placement="top" data-toggle="tooltip" title="Add">
-                  <button class="btn btn-primary btn-sm" data-title="Add" data-toggle="modal" data-target="#add">Add</button>
+                  <button class="btn btn-primary btn-sm" [disabled]="!isadmin()" data-title="Add" data-toggle="modal" data-target="#add">Add</button>
                 </p>
         <p>Total: {{a}}</p>
         <table id="mytable" class="table table-bordered table-hover table-striped">
@@ -21,8 +21,8 @@
             <th>Name</th>
             <th>Price</th>
             <th>Amount</th>
-            <th>Yunfei</th>
-            <th>小计</th>
+            <th>Ship￥</th>
+            <th>Subtotal</th>
             <th>Note</th>
             <th>Edit</th>
             <th>Delete</th>

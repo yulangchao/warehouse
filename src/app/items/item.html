@@ -10,10 +10,9 @@
 
       <div class="table table-responsive">
                 <p data-placement="top" data-toggle="tooltip" title="Add">
-                  <button class="btn btn-primary btn-sm" data-title="Add" data-toggle="modal" data-target="#add">Add</button>
-                  <button class="btn btn-primary btn-sm" (click)="updateItems()">Update</button>
+                  <button class="btn btn-primary btn-sm" [disabled]="!isadmin()" data-title="Add" data-toggle="modal" data-target="#add">Add</button>
+                  <button class="btn btn-primary btn-sm" [disabled]="!isadmin()" (click)="updateItems()">Update</button>
                 </p>
-
 
         <table id="mytable" class="table table-bordered table-hover table-striped">
 

@@ -114,49 +114,52 @@ export class Item {
       }
   }
   updateItems(){
+    if (JSON.parse(localStorage.getItem('token')).role === "admin") {
+      this.itemService.getAllruku()
+        .subscribe((res) => {
 
-    this.itemService.getAllruku()
-      .subscribe((res) => {
-
-        // Populate our `item` array with the `response` data
-        this.rukus = res;
-        console.log(this.rukus);
-        for (let ruku of this.rukus){
+          // Populate our `item` array with the `response` data
+          this.rukus = res;
+          console.log(this.rukus);
+          for (let ruku of this.rukus) {
             console.log(ruku.number);
-            if(isNaN(this.arrays[ruku.name])){
+            if (isNaN(this.arrays[ruku.name])) {
               this.arrays[ruku.name] = 0;
             }
             this.arrays[ruku.name] = this.arrays[ruku.name] + ruku.number
-        }
-        console.log(this.arrays);
-              this.itemService.getAllchuku()
-                .subscribe((res) => {
+          }
+          console.log(this.arrays);
+          this.itemService.getAllchuku()
+            .subscribe((res) => {
 
-                  // Populate our `item` array with the `response` data
-                  this.chukus = res;
-                  console.log(this.chukus);
-                  for (let chuku of this.chukus){
-                      console.log(chuku.number);
-                      if(isNaN(this.arrays[chuku.name])){
-                        this.arrays[chuku.name] = 0;
-                      }
-                      this.arrays[chuku.name] = this.arrays[chuku.name] - chuku.number
-                  }
-                  console.log(this.arrays);
-                  for (let array in this.arrays){
-                      console.log(array);
-                      console.log(this.arrays[array]);
-                      this.itemService.updateItem(array,{number: this.arrays[array]})
-                      .subscribe((res) => {
+              // Populate our `item` array with the `response` data
+              this.chukus = res;
+              console.log(this.chukus);
+              for (let chuku of this.chukus) {
+                console.log(chuku.number);
+                if (isNaN(this.arrays[chuku.name])) {
+                  this.arrays[chuku.name] = 0;
+                }
+                this.arrays[chuku.name] = this.arrays[chuku.name] - chuku.number
+              }
+              console.log(this.arrays);
+              for (let array in this.arrays) {
+                console.log(array);
+                console.log(this.arrays[array]);
+                this.itemService.updateItem(array, {number: this.arrays[array]})
+                  .subscribe((res) => {
 
-                      });
-                  }
-        this.clicked = true;
-        this.arrays = [];
+                  });
+              }
+              this.clicked = true;
+              this.arrays = [];
 
-      });
+            });
 
-      });
-
+        });
+    }
+  }
+  isadmin(){
+    return (JSON.parse(localStorage.getItem('token')).role === "admin");
   }
 }
