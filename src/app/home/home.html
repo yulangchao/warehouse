@@ -1,6 +1,13 @@
+<h3 class="text-center">Warehouse App</h3>
+<div class="row">
+<div class="col-sm-4 col-sm-offset-4 alert alert-warning text-center" role="alert" *ngIf="!isadmin()" >
+  <strong>Warning!</strong> You have to log in to see contents!
+</div>
+<div class="col-sm-4"></div>
+</div>
+<br>
+<div class="container" *ngIf="isadmin()">
 
-<div class="container">
-  <h3 class="text-center">Warehouse App</h3>
   <br>
   <div class="row">
     <div class="col-sm-4"> </div>
@@ -20,7 +27,8 @@
 </div>
 <br>
 <br>
-<div class="text-center">This is the app for the warehouse database.
+<div class="text-center">
+  This is the app for the warehouse database.
   <br>Using Angular 4.0 + TypeScript 2.x + passport.js + mongodb + node.js + express + sass
   <br>My Email: Richardyych@gmail.com
   <div class="clearfix"></div>
