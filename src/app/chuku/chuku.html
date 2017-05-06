@@ -65,7 +65,7 @@
 
                   </div>
                   <div class="modal-footer ">
-                    <button type="button" (click)="deleteItem(chuku._id)" data-dismiss="modal" class="btn btn-success"><span class="glyphicon glyphicon-ok-sign"></span> Yes</button>
+                    <button type="button" (click)="deleteChuku(chuku._id)" data-dismiss="modal" class="btn btn-success"><span class="glyphicon glyphicon-ok-sign"></span> Yes</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> No</button>
                   </div>
                 </div>
@@ -80,23 +80,88 @@
                 <div class="modal-content">
                   <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-                    <h4 class="modal-title custom_align" id="Heading">Edit Your Detail</h4>
+                    <h4 class="modal-title custom_align" id="Heading">Edit this entry</h4>
                   </div>
                   <div class="modal-body">
-                    <div class="form-group">
-                      <input class="form-control " type="text" placeholder="Mohsin">
-                    </div>
-                    <div class="form-group">
-                      <input class="form-control " type="text" placeholder="Irshad">
-                    </div>
-                    <div class="form-group">
-                      <textarea rows="2" class="form-control" placeholder="CB 106/107 Street # 11 Wah Cantt Islamabad Pakistan"></textarea>
+                    <form class="form-horizontal" >
+
+                      <div class="form-group">
+                        <label class="col-md-4 control-label" for="Username">Username</label>
+                        <div class="col-md-6">
+                          <input id="Username" name="Username" type="text" placeholder="Username" class="form-control input-md" [(ngModel)]="chukuData.user" required="">
+
+                        </div>
+                      </div>
+                      <!-- Text input-->
+                      <div class="form-group">
+                        <label class="col-md-4 control-label" for="Product Name">Product Name</label>
+                        <div class="col-md-6">
+                          <select #t class="form-control"
+                                  (change)="chukuData.price = t.value.split('+')[0];" [(ngModel)]="chukuData.name">
+                            <option *ngFor="let item of items;" value="{{item.price}}+{{item.name}}">
+                              {{item.name}}
+                            </option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <!-- Text input-->
+                      <div class="form-group">
+                        <label class="col-md-4 control-label" for="Price">Price</label>
+                        <div class="col-md-6">
+                          <input id="Price" name="Price" type="text" class="form-control input-md" [(ngModel)]="chukuData.price" required="">
+
+                        </div>
+                      </div>
+
+                      <!-- Text input-->
+                      <div class="form-group">
+                        <label class="col-md-4 control-label" for="Amount">Amount</label>
+                        <div class="col-md-6">
+                          <input id="Amount" name="Amount" type="text" placeholder="Amount" class="form-control input-md" [(ngModel)]="chukuData.number" required="">
+
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="col-md-4 control-label" for="Kuaidi ">Kuaidi</label>
+                        <div class="col-md-6">
+                          <input id="Kuaidi " name="Kuaidi " type="text" placeholder="Kuaidi " class="form-control input-md" [(ngModel)]="chukuData.kuaidi" required="">
+
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="col-md-4 control-label" for="Date ">Date</label>
+                        <div class="col-md-6">
+                          <input id="Date " name="Date " type="Date" placeholder="Date " class="form-control input-md" [(ngModel)]="chukuData.date" required="">
+
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="col-md-4 control-label" for="Notes ">Notes</label>
+                        <div class="col-md-6">
+                          <input id="Notes " name="Notes " type="text" placeholder="Notes " class="form-control input-md" [(ngModel)]="chukuData.text" required="">
+
+                        </div>
+                      </div>
+
+                      <!-- Text input-->
 
 
-                    </div>
-                  </div>
-                  <div class="modal-footer ">
-                    <button type="button" class="btn btn-warning btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span> Update</button>
+
+                      <!-- Button -->
+                      <div class="form-group">
+                        <label class="col-md-4 control-label" for=""></label>
+                        <div class="col-md-4">
+                          <button type="submit" name="" (click)="updateChuku(chuku._id)" class="btn btn-success">Update</button>
+                        </div>
+                      </div>
+
+
+                    </form>
+
                   </div>
                 </div>
                 <!-- /.modal-content -->
@@ -142,7 +207,7 @@
                                 <div class="col-md-6">
                                   <select #t class="form-control"
                                       (change)="chukuData.price = t.value.split('+')[0];" [(ngModel)]="chukuData.name">
-                                    <option *ngFor="let item of items;" value="{{item.price}}+{{item.name}}">
+                                    <option *ngFor="let item of items;" value="{{item.saleprice}}+{{item.name}}">
                                       {{item.name}}
                                     </option>
                                   </select>

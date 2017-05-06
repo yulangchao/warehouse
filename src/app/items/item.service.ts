@@ -61,11 +61,11 @@ export class ItemService {
       .map(res => res.json());
   }
 
-  updateItem(name,number) {
+  updateItem(name,data) {
       let headers = new Headers();
 
       headers.append('Content-Type', 'application/json');
-      return this.http.put(`/api/item/${name}`,JSON.stringify(number),
+      return this.http.put(`/api/item/${name}`,JSON.stringify(data),
           {headers: headers})
           .map(res => res.json());
   }

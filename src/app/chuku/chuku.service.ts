@@ -60,11 +60,11 @@ export class ChukuService {
       .map(res => res.json());
   }
 
-  updateItem(name,number) {
+  updateChuku(id,data) {
     let headers = new Headers();
 
     headers.append('Content-Type', 'application/json');
-    return this.http.put(`/api/item/${name}`,JSON.stringify({number: number}),{headers: headers})
+    return this.http.put(`/api/chuku/${id}`,JSON.stringify(data),{headers: headers})
       .map(res => res.json());
   }
 }

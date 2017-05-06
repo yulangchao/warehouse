@@ -11,7 +11,6 @@
       <div class="table table-responsive">
                 <p data-placement="top" data-toggle="tooltip" title="Add">
                   <button class="btn btn-primary btn-sm" [disabled]="!isadmin()" data-title="Add" data-toggle="modal" data-target="#add">Add</button>
-                  <button class="btn btn-primary btn-sm" [disabled]="!isadmin()" (click)="updateItems()">Update</button>
                 </p>
 
         <table id="mytable" class="table table-bordered table-hover table-striped">
@@ -72,23 +71,59 @@
                 <div class="modal-content">
                   <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-                    <h4 class="modal-title custom_align" id="Heading">Edit Your Detail</h4>
+                    <h4 class="modal-title custom_align" id="Heading">Edit this entry</h4>
                   </div>
                   <div class="modal-body">
-                    <div class="form-group">
-                      <input class="form-control " type="text" placeholder="Mohsin">
-                    </div>
-                    <div class="form-group">
-                      <input class="form-control " type="text" placeholder="Irshad">
-                    </div>
-                    <div class="form-group">
-                      <textarea rows="2" class="form-control" placeholder="CB 106/107 Street # 11 Wah Cantt Islamabad Pakistan"></textarea>
+                    <form class="form-horizontal">
+
+                      <!-- Text input-->
+                      <div class="form-group">
+                        <label class="col-md-4 control-label" for="Product Name">Product Name</label>
+                        <div class="col-md-6">
+                          <input id="Product Name" name="Product Name" type="text" placeholder="Product Name" class="form-control input-md" [(ngModel)]="itemData.name" required="">
+
+                        </div>
+                      </div>
 
 
-                    </div>
-                  </div>
-                  <div class="modal-footer ">
-                    <button type="button" class="btn btn-warning btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span> Update</button>
+                      <!-- Text input-->
+                      <div class="form-group">
+                        <label class="col-md-4 control-label" for="Price">Price</label>
+                        <div class="col-md-6">
+                          <input id="Price" name="Price" type="text" placeholder="Price" class="form-control input-md" [(ngModel)]="itemData.price" required="">
+
+                        </div>
+                      </div>
+
+                      <!-- Text input-->
+                      <div class="form-group">
+                        <label class="col-md-4 control-label" for="Sale Price">Sale Price</label>
+                        <div class="col-md-6">
+                          <input id="Sale Price" name="Sale Price" type="text" placeholder="Sale Price" class="form-control input-md" [(ngModel)]="itemData.saleprice" required="">
+
+                        </div>
+                      </div>
+
+                      <!-- Text input-->
+                      <div class="form-group">
+                        <label class="col-md-4 control-label" for="Notes ">Notes</label>
+                        <div class="col-md-6">
+                          <input id="Notes " name="Notes " type="text" placeholder="Notes " class="form-control input-md" [(ngModel)]="itemData.text" required="">
+
+                        </div>
+                      </div>
+
+                      <!-- Button -->
+                      <div class="form-group">
+                        <label class="col-md-4 control-label" for=""></label>
+                        <div class="col-md-4">
+                          <button id="" name="" (click)="updateItem(item._id)" class="btn btn-success">Update</button>
+                        </div>
+                      </div>
+
+
+                    </form>
+
                   </div>
                 </div>
                 <!-- /.modal-content -->
@@ -114,7 +149,7 @@
                       <div class="modal-content">
                         <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-                          <h4 class="modal-title custom_align" id="Heading">Delete this entry</h4>
+                          <h4 class="modal-title custom_align" id="Heading">Add Items</h4>
                         </div>
                         <div class="modal-body">
                               <form class="form-horizontal">

@@ -118,27 +118,21 @@ export class Chuku {
     }
   }
 
-  updateItem(){
-    if (JSON.parse(localStorage.getItem('token')).role === "admin") {
-      this.chukuService.getItem(this.chukuData.name)
-        .subscribe((res) => {
-
-          // Populate our `chuku` array with the `response` data;
-          console.log(parseInt("" + this.chukuData.number));
-          this.count = res.number + parseInt("" + this.chukuData.number);
-          console.log(this.count);
-          this.chukuService.updateItem(this.chukuData.name, this.count)
-            .subscribe((res) => {
-
-            });
-
-        });
-
-    }
-
-  }
   isadmin(){
     return (JSON.parse(localStorage.getItem('token')).role === "admin");
+  }
+
+  updateChuku(id) {
+    if (JSON.parse(localStorage.getItem('token')).role === "admin") {
+      this.chukuData.name = this.chukuData.name.split('+')[1];
+      this.chukuService.updateChuku(id,this.chukuData)
+        .subscribe((res) => {
+
+          // Populate our `item` array with the `response` data
+          this.items = res;
+          location.reload();
+        });
+    }
   }
 
 }

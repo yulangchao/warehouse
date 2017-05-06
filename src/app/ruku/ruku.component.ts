@@ -119,26 +119,20 @@ export class Ruku {
     }
   }
 
-  updateItem(){
-    if (JSON.parse(localStorage.getItem('token')).role === "admin") {
-      this.rukuService.getItem(this.rukuData.name)
-        .subscribe((res) => {
-
-          // Populate our `ruku` array with the `response` data;
-          console.log(parseInt("" + this.rukuData.number));
-          this.count = res.number + parseInt("" + this.rukuData.number);
-          console.log(this.count);
-          this.rukuService.updateItem(this.rukuData.name, this.count)
-            .subscribe((res) => {
-
-            });
-
-        });
-
-
-    }
-  }
   isadmin(){
     return (JSON.parse(localStorage.getItem('token')).role === "admin");
+  }
+
+  updateRuku(id) {
+    if (JSON.parse(localStorage.getItem('token')).role === "admin") {
+      this.rukuData.name = this.rukuData.name.split('+')[1];
+      this.rukuService.updateRuku(id,this.rukuData)
+        .subscribe((res) => {
+
+          // Populate our `item` array with the `response` data
+          this.items = res;
+          location.reload();
+        });
+    }
   }
 }

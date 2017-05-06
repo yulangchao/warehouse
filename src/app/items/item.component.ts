@@ -113,6 +113,20 @@ export class Item {
           });
       }
   }
+
+  updateItem(id) {
+    if (JSON.parse(localStorage.getItem('token')).role === "admin") {
+
+      this.itemService.updateItem(id,this.itemData)
+        .subscribe((res) => {
+
+          // Populate our `item` array with the `response` data
+          this.items = res;
+          location.reload();
+        });
+    }
+  }
+
   updateItems(){
     if (JSON.parse(localStorage.getItem('token')).role === "admin") {
       this.itemService.getAllruku()

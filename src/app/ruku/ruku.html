@@ -55,7 +55,7 @@
                 <div class="modal-content">
                   <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-                    <h4 class="modal-title custom_align" id="Heading">Delete this entry</h4>
+                    <h4 class="modal-title custom_align" id="Heading">Edit this entry</h4>
                   </div>
                   <div class="modal-body">
 
@@ -76,24 +76,83 @@
                 <div class="modal-content">
                   <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-                    <h4 class="modal-title custom_align" id="Heading">Edit Your Detail</h4>
+                    <h4 class="modal-title custom_align" id="Heading">Delete this entry</h4>
                   </div>
                   <div class="modal-body">
-                    <div class="form-group">
-                      <input class="form-control " type="text" placeholder="Mohsin">
-                    </div>
-                    <div class="form-group">
+                    <form class="form-horizontal" >
 
-                      <input class="form-control " type="text" placeholder="Irshad">
-                    </div>
-                    <div class="form-group">
-                      <textarea rows="2" class="form-control" placeholder="CB 106/107 Street # 11 Wah Cantt Islamabad Pakistan"></textarea>
+                      <div class="form-group">
+                        <label class="col-md-4 control-label" for="Username">Username</label>
+                        <div class="col-md-6">
+                          <input id="Username" name="Username" type="text" placeholder="Username" class="form-control input-md" [(ngModel)]="rukuData.user" required="">
+
+                        </div>
+                      </div>
+                      <!-- Text input-->
+                      <div class="form-group">
+                        <label class="col-md-4 control-label" for="Product Name">Product Name</label>
+                        <div class="col-md-6">
+                          <select #t class="form-control"
+                                  (change)="rukuData.price = t.value.split('+')[0];" [(ngModel)]="rukuData.name">
+                            <option *ngFor="let item of items;" value="{{item.price}}+{{item.name}}">
+                              {{item.name}}
+                            </option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <!-- Text input-->
+                      <div class="form-group">
+                        <label class="col-md-4 control-label" for="Price">Price</label>
+                        <div class="col-md-6">
+                          <input id="Price" name="Price" type="text" class="form-control input-md" [(ngModel)]="rukuData.price" required="">
+
+                        </div>
+                      </div>
+
+                      <!-- Text input-->
+                      <div class="form-group">
+                        <label class="col-md-4 control-label" for="Amount">Amount</label>
+                        <div class="col-md-6">
+                          <input id="Amount" name="Amount" type="text" placeholder="Amount" class="form-control input-md" [(ngModel)]="rukuData.number" required="">
+
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="col-md-4 control-label" for="From where ">From where</label>
+                        <div class="col-md-6">
+                          <input id="From where " name="From where " type="text" placeholder="From where " class="form-control input-md" [(ngModel)]="rukuData.location" required="">
+
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="col-md-4 control-label" for="Date ">Date</label>
+                        <div class="col-md-6">
+                          <input id="Date " name="Date " type="Date" placeholder="Date " class="form-control input-md" [(ngModel)]="rukuData.date" required="">
+
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="col-md-4 control-label" for="Notes ">Notes</label>
+                        <div class="col-md-6">
+                          <input id="Notes " name="Notes " type="text" placeholder="Notes " class="form-control input-md" [(ngModel)]="rukuData.text" required="">
+
+                        </div>
+                      </div>
+                      <!-- Button -->
+                      <div class="form-group">
+                        <label class="col-md-4 control-label" for=""></label>
+                        <div class="col-md-4">
+                          <button type="submit" name="" (click)="updateRuku(ruku._id)" class="btn btn-success">Update</button>
+                        </div>
+                      </div>
 
 
-                    </div>
-                  </div>
-                  <div class="modal-footer ">
-                    <button type="button" class="btn btn-warning btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span> Update</button>
+                    </form>
+
                   </div>
                 </div>
                 <!-- /.modal-content -->

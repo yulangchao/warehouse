@@ -60,11 +60,12 @@ export class RukuService {
       .map(res => res.json());
   }
 
-  updateItem(name,number) {
+  updateRuku(id,data) {
     let headers = new Headers();
 
     headers.append('Content-Type', 'application/json');
-    return this.http.put(`/api/item/${name}`,JSON.stringify({number: number}),{headers: headers})
+    return this.http.put(`/api/ruku/${id}`,JSON.stringify(data),
+      {headers: headers})
       .map(res => res.json());
   }
 }

@@ -85,7 +85,7 @@ export default (app, router) => {
       // Use mongoose to a single item item by id in the database
       Item.findOne({
 
-        'name': req.params.item_id}, (err, item) => {
+        _id : req.params.item_id}, (err, item) => {
 
         if(err)
           res.send(err);
@@ -103,7 +103,7 @@ export default (app, router) => {
       // use our item model to find the item item we want
       Item.findOne({
 
-        'name' : req.params.item_id
+        _id : req.params.item_id
 
       }, (err, item) => {
 
