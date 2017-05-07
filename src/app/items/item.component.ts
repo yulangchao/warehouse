@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import {ReversePipe} from 'ngx-pipes/src/app/pipes/array/reverse';
 import {ItemService} from './item.service';
 import {Router} from '@angular/router-deprecated';
 // We `import` `http` into our `ItemService` but we can only
@@ -14,7 +13,7 @@ import {NgFor} from '@angular/common';
     // HTML tag for specifying this component
     selector: 'item',
     // Let Angular 2 know about `Http` and `ItemService`
-    providers: [...HTTP_PROVIDERS, ItemService,ReversePipe],
+    providers: [...HTTP_PROVIDERS, ItemService],
     template: require('./item.html')
 })
 
