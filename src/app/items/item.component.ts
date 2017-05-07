@@ -27,7 +27,7 @@ export class Item {
     number: 0,
     text: ''
   };
-
+  private filter: string = '';
   private shows: number = 5;
   private items: Array<Item> = [];
   private rukus: Array<any> = [];
