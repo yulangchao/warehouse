@@ -6,17 +6,18 @@
 
       <h4>Datatable</h4>
       <div>
-                      <label>Display:</label>
+
 <!-- data-bind to the input element; store value in yourName -->
-                          <select  class="form-control col-sm-4" [(ngModel)]="shows">
+                          <select  class="filter form-control col-sm-4" [(ngModel)]="shows">
                             <option>5</option>
                             <option>10</option>
                             <option>20</option>
                             <option>50</option>
-                            <option [attr.value]="rukus.length">All</option>
+                            <option [attr.value]="items.length">All</option>
                           </select>
-                          {{shows}}
-<hr>
+                            <label class="display-lable">Display:</label>                    
+                          
+
 
 
       <div class="table table-responsive">
@@ -34,7 +35,7 @@
             <th>Edit</th>
             <th>Delete</th>
           </thead>
-          <tbody *ngFor="let item of items.slice(items.length-shows,items.length)">
+          <tbody *ngFor="let item of items.slice(((items.length-shows)<0 ? 0 : (items.length-shows)),items.length)">
 
             <tr>
               <td>{{item.name}}</td>

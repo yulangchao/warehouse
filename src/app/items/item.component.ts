@@ -22,8 +22,8 @@ export class Item {
   // Initialize our `itemData.text` to an empty `string`
   itemData = {
     name: '',
-    price: null,
-    saleprice: null,
+    price: 0,
+    saleprice: 0,
     number: 0,
     text: ''
   };
@@ -51,9 +51,9 @@ export class Item {
                       // Reset `item` input
                       this.itemData.text = '';
                       this.itemData.name = '';
-                      this.itemData.price = null;
+                      this.itemData.price = 0;
                       this.itemData.number = 0;
-                      this.itemData.saleprice = null;
+                      this.itemData.saleprice = 0;
                   });
        let t = setInterval(() => {
 
@@ -94,9 +94,9 @@ export class Item {
             // Reset `item` input
             this.itemData.text = '';
             this.itemData.name = '';
-            this.itemData.price = null;
+            this.itemData.price = 0;
             this.itemData.number = 0;
-            this.itemData.saleprice = null;
+            this.itemData.saleprice = 0;
         });
       }
   }

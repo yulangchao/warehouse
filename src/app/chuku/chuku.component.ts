@@ -55,7 +55,7 @@ export class Chuku {
             // Populate our `chuku` array with the `response` data
             this.chukus = res;
             for (let chuku of res){
-            this.a += chuku.price * chuku.number - parseInt(chuku.kuaidi);
+            this.a += chuku.price * chuku.number - ((chuku.kuaidi==="") ? 0 : parseInt(chuku.kuaidi));
             }
             // Reset `chuku` input
             this.chukuData.text = '';
