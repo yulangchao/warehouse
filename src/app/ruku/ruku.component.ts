@@ -33,6 +33,7 @@ export class Ruku {
     date: '',
     text: ''
   };
+    private shows: number = 5;
   private selected: number = 3;
   private rukus: Array<Ruku> = [];
   private items: Array<Item> = [];

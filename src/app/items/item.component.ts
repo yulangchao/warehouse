@@ -28,7 +28,7 @@ export class Item {
     text: ''
   };
 
-  private yourName: number = 10;
+  private shows: number = 5;
   private items: Array<Item> = [];
   private rukus: Array<any> = [];
   private chukus: Array<any> = [];

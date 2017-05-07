@@ -5,7 +5,16 @@
     <div class="col-md-12">
 
       <h4>Datatable</h4>
-
+                      <label>Display:</label>
+<!-- data-bind to the input element; store value in yourName -->
+                          <select  class="form-control col-sm-4" [(ngModel)]="shows">
+                            <option>5</option>
+                            <option>10</option>
+                            <option>20</option>
+                            <option>50</option>
+                            <option [attr.value]="chukus.length">All</option>
+                          </select>
+                          {{shows}}
 
 
       <div class="table table-responsive" mychuku>
@@ -27,7 +36,7 @@
             <th>Edit</th>
             <th>Delete</th>
           </thead>
-          <tbody *ngFor="let chuku of chukus.slice(chukus.length-10,chukus.length)">
+          <tbody *ngFor="let chuku of chukus.slice(chukus.length-shows,chukus.length)">
 
             <tr>
               <td>{{chuku.date}}</td>

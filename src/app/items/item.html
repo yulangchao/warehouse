@@ -8,12 +8,14 @@
       <div>
                       <label>Display:</label>
 <!-- data-bind to the input element; store value in yourName -->
-                          <select  class="form-control col-sm-4" [(ngModel)]="yourName">
+                          <select  class="form-control col-sm-4" [(ngModel)]="shows">
+                            <option>5</option>
                             <option>10</option>
                             <option>20</option>
                             <option>50</option>
-                            <option>100</option>
+                            <option [attr.value]="rukus.length">All</option>
                           </select>
+                          {{shows}}
 <hr>
 
 
@@ -32,7 +34,7 @@
             <th>Edit</th>
             <th>Delete</th>
           </thead>
-          <tbody *ngFor="let item of items.slice(0,yourName)">
+          <tbody *ngFor="let item of items.slice(items.length-shows,items.length)">
 
             <tr>
               <td>{{item.name}}</td>

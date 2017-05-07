@@ -32,6 +32,7 @@ export class Chuku {
     date: '',
     text: ''
   };
+  private shows: number = 5;
   private selected: number = 3;
   private chukus: Array<Chuku> = [];
   private items: Array<Item> = [];
